@@ -1,10 +1,12 @@
+import { Timers } from "./components/Timers";
 import { Title } from "./components/Title";
 
 
 function App() {
   return (
     <div className="container">
-      <Title/>      
+      <Title/>  
+      <Timers/>  
     </div>
   );
 }

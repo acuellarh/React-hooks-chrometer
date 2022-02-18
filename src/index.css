@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.gray-light-border {
+  border: 1px solid rgb(211,211,211) !important;  
+}
+
+.gray-light-color {
+  color: rgb(139, 134, 134) !important;  
+}
+
+.gray-dark-color {
+  color: rgb(88,88,88) !important;  
+}
