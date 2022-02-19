@@ -11,7 +11,7 @@ export const Timers = () => {
           <div className="px-3">
             <p className="gray-dark-color fs-4 fw-bolder d-flex justify-content-center">01:31:00</p>
           </div>
-          <div className="mb-3 d-flex flex-row-reverse mx-3">
+          <div className="mb-3 d-flex flex-row-reverse mx-1">
             <DeleteIcon/>
             <EditIcon/>        
           </div>     

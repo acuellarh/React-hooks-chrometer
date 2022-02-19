@@ -23,3 +23,7 @@ code {
 .gray-dark-color {
   color: rgb(88,88,88) !important;  
 }
+
+.btn {
+  box-shadow: nome !important;
+}
