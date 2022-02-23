@@ -27,3 +27,18 @@ code {
 .btn {
   box-shadow: nome !important;
 }
+
+.btn-outline-success:hover {
+  background-color: white;
+  color: #198754;
+  border-color: #198754;
+  text-decoration: none;
+}
+
+
+.btn-outline-danger:hover {
+  background-color: white;
+  color: #dc3545;
+  border-color: #dc3545;
+  text-decoration: none;
+}
