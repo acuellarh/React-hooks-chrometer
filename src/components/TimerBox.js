@@ -27,7 +27,7 @@ export const TimerBox = ({key, timerItem}) => {
 
   return (
     <div className="row d-flex justify-content-center mt-2">     
-      <div className="col-3 px-0 border gray-light-border">
+      <div className="col-5 col-sm-5 col-md-3 mx-4 px-0 border gray-light-border">
         <h2 className="h5 px-3 pt-2 mb-0">{title}</h2>
         <p className="px-3 mt-0 gray-light-color mb-1">{description}</p>
         <div className="px-3">
