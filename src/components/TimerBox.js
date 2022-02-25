@@ -26,14 +26,14 @@ export const TimerBox = ({key, timerItem}) => {
 
 
   return (
-    <div className="row d-flex justify-content-center mt-4">     
+    <div className="row d-flex justify-content-center mt-2">     
       <div className="col-3 px-0 border gray-light-border">
         <h2 className="h5 px-3 pt-2 mb-0">{title}</h2>
         <p className="px-3 mt-0 gray-light-color mb-1">{description}</p>
         <div className="px-3">
-          <p className="gray-dark-color fs-4 fw-bolder d-flex justify-content-center">{formatTime(timer)}</p>
+          <p className="gray-dark-color fs-4 fw-bolder d-flex justify-content-center m-0">{formatTime(timer)}</p>
         </div>
-        <div className="mb-3 d-flex flex-row-reverse mx-1">
+        <div className="mb-1 d-flex flex-row-reverse mx-1">
           <DeleteIcon/>
           <EditIcon/>        
         </div>     
