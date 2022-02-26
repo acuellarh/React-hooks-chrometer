@@ -4,7 +4,7 @@ import {formatTime} from "../utils/formatTime"
 import { useEffect, useState } from "react";
 
 
-export const TimerBox = ({key, timerItem}) => {
+export const TimerBox = ({timerItem}) => {
   let {id, title, description} = timerItem
   const [timer, setTimer] = useState(0);
   const [timerStart, setTimerStart] = useState(false);
@@ -43,7 +43,7 @@ export const TimerBox = ({key, timerItem}) => {
 
             <button
             type="button"
-            class="btn btn-outline-danger rounded-0"
+            className="btn btn-outline-danger rounded-0"
             onClick={() => setTimerStart(false)}
             >
               Stop
@@ -51,7 +51,7 @@ export const TimerBox = ({key, timerItem}) => {
             :
               <button
               type="button"
-              class="btn btn-outline-success rounded-0"
+              className="btn btn-outline-success rounded-0"
               onClick={() => setTimerStart(true)}
               >
                 Start

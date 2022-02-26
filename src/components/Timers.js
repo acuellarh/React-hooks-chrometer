@@ -6,9 +6,9 @@ export const Timers = ({timerList}) => {
       {
         timerList.length > 0 ? (
           timerList.map((timerItem) => (
-            <TimerBox
-              key={timerItem.id}
+            <TimerBox            
               timerItem={timerItem}
+              key={timerItem.id}
             />
           ))
         )
