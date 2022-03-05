@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-export const Form = () => {
+export const Form = ({setShowForm, addTimer}) => {
 
-  const [timerInfo, setTimerInfo] = useState({
-    title:"",
-    description:""
-  });
+  const initialTimerInfo = { title:"", description:"" }
+
+  const [timerInfo, setTimerInfo] = useState(initialTimerInfo);
+
+  const handleReset = () => {
+    setTimerInfo(initialTimerInfo)
+  }
 
   const handleChange = (event) => {
     setTimerInfo({...timerInfo, [event.target.name]: [event.target.value]})
@@ -13,7 +16,15 @@ export const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.table(timerInfo)
+    let action = event.target.id 
+    if (action==="create"){    
+      addTimer(timerInfo)
+      handleReset()
+      setShowForm(false)     
+    } else {     
+      handleReset()
+      setShowForm(false)        
+    }
   }
 
   return (
@@ -30,7 +41,6 @@ export const Form = () => {
             value={timerInfo.title}
             onChange={handleChange}
             className="col-sm-5 col-md-12 border gray-light-border p-2"
-
           />
         </div>
         <div className="d-flex justify-content-center p-2 mb-2">
@@ -44,8 +54,20 @@ export const Form = () => {
           />
         </div>     
         <div className="mt-2 d-flex justify-content-center p-2">
-          <button className="col-6 btn btn-outline-primary rounded-0">Create</button>      
-          <button className="col-6 btn btn-outline-danger rounded-0">Cancel</button>
+          <button
+           className="col-6 btn btn-outline-primary rounded-0"
+           id="create"     
+           onClick={e => handleSubmit(e)}  
+          >
+            Create
+          </button>      
+          <button
+            className="col-6 btn btn-outline-danger rounded-0" 
+            id="cancel"      
+            onClick={e => handleSubmit(e)}         
+          >
+            Cancel
+          </button>
         </div>             
       </form>
     </div>   
