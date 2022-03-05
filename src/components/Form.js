@@ -1,6 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const Form = ({setShowForm, addTimer}) => {
+export const Form = ({
+    setShowForm,
+    addTimer,
+    timerItem,
+    setIdProductoToEdit,
+    idProductToEdit,
+    updateTimer
+  }) => {
 
   const initialTimerInfo = { title:"", description:"" }
 
@@ -17,15 +24,42 @@ export const Form = ({setShowForm, addTimer}) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     let action = event.target.id 
-    if (action==="create"){    
-      addTimer(timerInfo)
+
+    switch (action) {
+      case "create" :
+        addTimer(timerInfo)
+        handleReset()
+        setShowForm(false) 
+      break
+      case "cancelCreate" :
+        handleReset()
+        setShowForm(false)   
+      break
+      case "update" :
+        updateTimer(timerInfo)
+        setIdProductoToEdit(false)
+        handleReset()   
+      break
+      case "cancelUpdate" :
+        setIdProductoToEdit(false)        
       handleReset()
-      setShowForm(false)     
-    } else {     
-      handleReset()
-      setShowForm(false)        
-    }
+      break
+      default:
+      console.log(`Sorry, we are out of ${action}.`);
+    } 
   }
+
+  useEffect(() => {
+    if(timerItem){
+      setTimerInfo(
+        {
+          title:timerItem.title,
+          description:timerItem.description,
+          id:idProductToEdit
+        }
+      )
+    }    
+  }, [timerItem]);
 
   return (
     <div className="row d-flex justify-content-center mt-2">     
@@ -56,14 +90,14 @@ export const Form = ({setShowForm, addTimer}) => {
         <div className="mt-2 d-flex justify-content-center p-2">
           <button
            className="col-6 btn btn-outline-primary rounded-0"
-           id="create"     
+           id={ idProductToEdit ? "update": "create"}       
            onClick={e => handleSubmit(e)}  
           >
-            Create
-          </button>      
+            { idProductToEdit ? "Update": "Create"}   
+          </button>            
           <button
             className="col-6 btn btn-outline-danger rounded-0" 
-            id="cancel"      
+            id={ idProductToEdit ? "cancelUpdate": "cancelCreate"}      
             onClick={e => handleSubmit(e)}         
           >
             Cancel

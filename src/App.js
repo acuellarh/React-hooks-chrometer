@@ -10,9 +10,10 @@ function App() {
 
   const [timerList, setTimerList] = useState(initialList);
   const [showForm, setShowForm] = useState(false);
+  const [idProductToEdit, setIdProductoToEdit] = useState(false);
 
   const addTimer = (timerInfo) => {
-    let newTimerInfo = timerInfo
+    let newTimerInfo = timerInfo  
     newTimerInfo.id = Date.now()
     setTimerList([...timerList, timerInfo])
   }
@@ -22,12 +23,34 @@ function App() {
     setTimerList(newTimerList)
   }
 
+  const updateTimer = ({
+    id:id,
+    title:titleEdited,
+    description:descriptionEdited}) => {     
+
+      const newTimers = timerList.map((timer) => {
+        if(timer.id === id){       
+          return {...timer,
+            title: titleEdited,
+            description:descriptionEdited
+          }
+        } else {
+          return timer
+        }
+      })
+      setTimerList(newTimers)   
+  }
+
   return (
     <div className="container">
-      <Title/>  
+      {/* {console.table(timerList)} */}
+      <Title/>      
       <Timers
         timerList={timerList}
-        removeTimer={removeTimer}  
+        removeTimer={removeTimer}
+        setIdProductoToEdit={setIdProductoToEdit} 
+        idProductToEdit={idProductToEdit} 
+        updateTimer={updateTimer}
       />  
       {
         showForm ?

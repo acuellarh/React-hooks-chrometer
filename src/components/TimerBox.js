@@ -4,7 +4,7 @@ import {formatTime} from "../utils/formatTime"
 import { useEffect, useState } from "react";
 
 
-export const TimerBox = ({timerItem, removeTimer}) => {
+export const TimerBox = ({timerItem, removeTimer, setIdProductoToEdit}) => {
   let {id, title, description} = timerItem
   const [timer, setTimer] = useState(0);
   const [timerStart, setTimerStart] = useState(false);
@@ -35,7 +35,10 @@ export const TimerBox = ({timerItem, removeTimer}) => {
             removeTimer={removeTimer}
             id={id}
           />
-          <EditIcon/>        
+          <EditIcon
+            setIdProductoToEdit={setIdProductoToEdit}
+            id={id}
+          />        
         </div>     
         <div className="d-grid gap-2">
            {
