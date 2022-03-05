@@ -17,11 +17,17 @@ function App() {
     setTimerList([...timerList, timerInfo])
   }
 
+  const removeTimer = (id) => {
+    const newTimerList = timerList.filter((timer) => timer.id !== id)
+    setTimerList(newTimerList)
+  }
+
   return (
     <div className="container">
       <Title/>  
       <Timers
-        timerList={timerList}  
+        timerList={timerList}
+        removeTimer={removeTimer}  
       />  
       {
         showForm ?

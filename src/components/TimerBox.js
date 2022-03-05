@@ -4,14 +4,13 @@ import {formatTime} from "../utils/formatTime"
 import { useEffect, useState } from "react";
 
 
-export const TimerBox = ({timerItem}) => {
+export const TimerBox = ({timerItem, removeTimer}) => {
   let {id, title, description} = timerItem
   const [timer, setTimer] = useState(0);
   const [timerStart, setTimerStart] = useState(false);
   
   useEffect(() => {
     let interval = null;
-
     if (timerStart){
       interval = setInterval (()=>{
       setTimer(prevTimer => prevTimer + 1)
@@ -19,9 +18,7 @@ export const TimerBox = ({timerItem}) => {
     } else {
       clearInterval(interval)
     }
-
-    return () => clearInterval(interval)
-    
+    return () => clearInterval(interval)    
   }, [timerStart]); 
 
 
@@ -34,7 +31,10 @@ export const TimerBox = ({timerItem}) => {
           <p className="gray-dark-color fs-4 fw-bolder d-flex justify-content-center m-0">{formatTime(timer)}</p>
         </div>
         <div className="mb-1 d-flex flex-row-reverse mx-1">
-          <DeleteIcon/>
+          <DeleteIcon  
+            removeTimer={removeTimer}
+            id={id}
+          />
           <EditIcon/>        
         </div>     
         <div className="d-grid gap-2">

@@ -1,6 +1,6 @@
 import { TimerBox } from "./TimerBox"
 
-export const Timers = ({timerList}) => {
+export const Timers = ({timerList, removeTimer}) => {
   return(
     <>
       {       
@@ -9,6 +9,7 @@ export const Timers = ({timerList}) => {
             <TimerBox            
               timerItem={timerItem}
               key={timerItem.id}
+              removeTimer={removeTimer}
             />
           ))
         )
