@@ -65,7 +65,7 @@ export const Form = ({
     <div className="row d-flex justify-content-center mt-2">     
       <form
         onSubmit={handleSubmit}
-        className="col-sm-5 col-md-3 mx-4 px-0 border gray-light-border p-2"
+        className="col-5 col-sm-5 col-md-3 mx-4 px-0 border gray-light-border p-2"
       >
         <div className="d-flex justify-content-center p-2 mb-2">
           <input
@@ -74,7 +74,7 @@ export const Form = ({
             placeholder="Title"
             value={timerInfo.title}
             onChange={handleChange}
-            className="col-sm-5 col-md-12 border gray-light-border p-2"
+            className="col-12 col-sm-12 col-md-12 border gray-light-border p-2"
           />
         </div>
         <div className="d-flex justify-content-center p-2 mb-2">
@@ -84,7 +84,7 @@ export const Form = ({
             placeholder="Description"
             value={timerInfo.description}
             onChange={handleChange}
-            className="col-sm-5 col-md-12 border gray-light-border p-2"
+            className="col-12 col-sm-12 col-md-12 border gray-light-border p-2"
           />
         </div>     
         <div className="mt-2 d-flex justify-content-center p-2">
