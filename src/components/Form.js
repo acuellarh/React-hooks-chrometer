@@ -7,6 +7,7 @@ export const Form = ({
     setIdProductoToEdit,
     idProductToEdit,
     updateTimer
+
   }) => {
 
   const initialTimerInfo = { title:"", description:"" }
@@ -42,7 +43,7 @@ export const Form = ({
       break
       case "cancelUpdate" :
         setIdProductoToEdit(false)        
-      handleReset()
+        handleReset()
       break
       default:
       console.log(`Sorry, we are out of ${action}.`);

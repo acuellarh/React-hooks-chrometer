@@ -10,7 +10,6 @@ function App() {
 
   const [timerList, setTimerList] = useState(initialList);
   const [showForm, setShowForm] = useState(false);
-  const [idProductToEdit, setIdProductoToEdit] = useState(false);
 
   const addTimer = (timerInfo) => {
     let newTimerInfo = timerInfo  
@@ -43,13 +42,10 @@ function App() {
 
   return (
     <div className="container">
-      {/* {console.table(timerList)} */}
       <Title/>      
       <Timers
         timerList={timerList}
         removeTimer={removeTimer}
-        setIdProductoToEdit={setIdProductoToEdit} 
-        idProductToEdit={idProductToEdit} 
         updateTimer={updateTimer}
       />  
       {
