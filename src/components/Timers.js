@@ -1,4 +1,3 @@
-import { Form } from "./Form"
 import { TimerBox } from "./TimerBox"
 
 export const Timers = ({timerList, removeTimer, updateTimer}) => {
